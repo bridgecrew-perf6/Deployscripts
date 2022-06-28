@@ -4,15 +4,6 @@
     Install-PackageProvider -Name NuGet -Confirm:$false -Force | Out-Null
 #}
 
-# Install PendingReboot Module
-if (-Not (Get-Module -ListAvailable -Name PendingReboot)) {
-    Write-Host "Install PendingReboot Module"
-    Install-Module PendingReboot -Confirm:$false -Force | Out-Null
-}
-
-# Import PendingReboot Module
-Import-Module PendingReboot
-
 # Install WindowsUpdate Module
 if (-Not (Get-Module -ListAvailable -Name PSWindowsUpdate)) {
     Write-Host "Install WindowsUpdate Module"
