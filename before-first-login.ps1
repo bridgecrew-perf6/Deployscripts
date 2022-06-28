@@ -1,6 +1,6 @@
 Function InstallDatto {
 $Platform="merlot"
-$SiteID="606f312f-98da-4c31-9400-287eca4da446" 
+$SiteID="4e21349e-7e6c-4ef2-a019-9549adfd2687" 
 If (Get-Service CagService -ErrorAction SilentlyContinue) {Write-Output "Datto RMM Agent already installed on this device" ; exit} 
 # Download the Agent
 $AgentURL="https://$Platform.centrastage.net/csm/profile/downloadAgent/$SiteID" 
