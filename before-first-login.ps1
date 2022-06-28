@@ -21,7 +21,8 @@ Remove-Item "$env:TEMP\DRMMSetup.exe" -Force
 
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module WingetTools -force
-Install-WinGet -force
+Import-Module WingetTools
+Install-WinGet
 winget install -e --id Mozilla.Firefox.ESR --accept-package-agreements
 winget install -e --id mcmilk.7zip-zstd --accept-package-agreements
 winget install -e --id Adobe.Acrobat.Reader.64-bit --accept-package-agreements
