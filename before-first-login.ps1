@@ -18,16 +18,6 @@ Write-Output "Starting Agent install to target site at $(Get-Date -Format HH:mm)
 Write-Output "Agent install completed at $(Get-Date -Format HH:mm) in $((Get-Date).Subtract($InstallStart).Seconds) seconds."
 Remove-Item "$env:TEMP\DRMMSetup.exe" -Force
 }
-Set-ExecutionPolicy -Force -ExecutionPolicy unrestricted
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-Install-Module WingetTools -force
-Import-Module WingetTools
-Install-WinGet
-
-winget install -e --id Mozilla.Firefox.ESR ---accept-package-agreements --accept-source-agreements --silent
-winget install -e --id mcmilk.7zip-zstd --accept-package-agreements --accept-source-agreements --silent
-winget install -e --id Adobe.Acrobat.Reader.64-bit --accept-package-agreements --accept-source-agreements --silent
-winget install -e --id Google.Chrome --accept-package-agreements --accept-source-agreements --silent
 
 InstallDatto
 
