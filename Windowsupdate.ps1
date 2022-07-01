@@ -1,8 +1,17 @@
 # Install Nuget PackageProvider
-#if (-Not (Get-PackageProvider -Name NuGet)) {
+if (-Not (Get-PackageProvider -Name NuGet)) {
     Write-Host "Install Nuget PackageProvider"
     Install-PackageProvider -Name NuGet -Confirm:$false -Force | Out-Null
-#}
+}
+
+Install-Module WingetTools -force
+Import-Module WingetTools
+Install-WinGet
+
+winget install -e --id Mozilla.Firefox.ESR ---accept-package-agreements --accept-source-agreements --silent
+winget install -e --id mcmilk.7zip-zstd --accept-package-agreements --accept-source-agreements --silent
+winget install -e --id Adobe.Acrobat.Reader.64-bit --accept-package-agreements --accept-source-agreements --silent
+winget install -e --id Google.Chrome --accept-package-agreements --accept-source-agreements --silent
 
 # Install WindowsUpdate Module
 if (-Not (Get-Module -ListAvailable -Name PSWindowsUpdate)) {
